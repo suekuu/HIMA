@@ -102,13 +102,21 @@ hima <- function(X, Y, M, COV.XM = NULL, COV.MY = COV.XM,
     {
       X <- scale(X)
       M <- scale(M)
-      COV.XM <- scale(COV.XM)
-      COV.MY <- scale(COV.MY)
+      if !is.null(COV.XM){
+        COV.XM <- scale(COV.XM)
+      }
+      if !is.null(COV.MY){
+        COV.MY <- scale(COV.MY)
+      }
     } else {
       X <- as.matrix(X)
       M <- as.matrix(M)
-      COV.XM <- as.matrix(COV.XM)
-      COV.MY <- as.matrix(COV.MY)
+      if !is.null(COV.XM){
+        COV.XM <- as.matrix(COV.XM)
+      }
+      if !is.null(COV.MY){
+        COV.MY <- as.matrix(COV.MY)
+      }
     }
  
     if(is.null(topN)) {
